@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Startup Landing — Replace with Your Name</title>
+    <meta name="description" content="Replace this with a crisp 1–2 sentence value proposition.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <div class="logo"><a href="/">YourStartup</a></div>
+        <nav>
+          <a href="#features">Features</a>
+          <a href="#how">How it works</a>
+          <a href="mailto:hello@yourdomain.com" class="btn">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <h1>Say your one-line pitch here.</h1>
+          <p class="lead">
+            A tight sentence on what you do, for whom, and the outcome.
+          </p>
+          <div class="cta">
+            <a class="btn btn-primary" href="mailto:hello@yourdomain.com">Get in touch</a>
+            <a class="btn" href="#features">Learn more</a>
+          </div>
+          <p class="subtext">Fast, secure, and deployed on a global CDN.</p>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="container grid-3">
+          <div class="card">
+            <h3>Performance</h3>
+            <p>Static HTML, zero bloat, instant page loads worldwide.</p>
+          </div>
+          <div class="card">
+            <h3>Credibility</h3>
+            <p>Clear value prop, social proof, and simple CTAs.</p>
+          </div>
+          <div class="card">
+            <h3>Control</h3>
+            <p>Own your domain and content; no lock‑in.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="section alt">
+        <div class="container">
+          <h2>How it works</h2>
+          <ol>
+            <li>Edit this page (it’s just HTML + CSS).</li>
+            <li>Push to GitHub and connect to Cloudflare Pages.</li>
+            <li>Point your Namecheap domain to your Pages URL.</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>© <span id="y"></span> YourStartup — All rights reserved.</small>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
