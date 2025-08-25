@@ -1,156 +1,236 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>SightScale.ai — The GenAI Control Layer</title>
-    <meta name="description" content="Provenance-assured data and LoRA modules that deliver SLA-grade, photorealistic outputs—repeatably and at scale." />
-    <link rel="canonical" href="https://www.sightscale.ai/" />
-    <meta name="theme-color" content="#0f172a" />
-    <meta name="robots" content="index,follow" />
+  <title>SightScale.ai — The GenAI Control Layer</title>
+  <meta name="description" content="Provenance-assured data and LoRA modules that deliver SLA-grade, photorealistic outputs—repeatably and at scale." />
+  <link rel="canonical" href="https://www.sightscale.ai/">
 
-    <!-- Social preview -->
-    <meta property="og:site_name" content="SightScale.ai" />
-    <meta property="og:title" content="SightScale.ai — The GenAI Control Layer" />
-    <meta property="og:description" content="Provenance-assured data and LoRA modules that deliver SLA-grade, photorealistic outputs—repeatably and at scale." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.sightscale.ai/" />
-    <meta property="og:image" content="https://www.sightscale.ai/og.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SightScale.ai — The GenAI Control Layer" />
-    <meta name="twitter:description" content="Provenance-assured data and LoRA modules that deliver SLA-grade, photorealistic outputs—repeatably and at scale." />
-    <meta name="twitter:image" content="https://www.sightscale.ai/og.jpg" />
-    <meta name="twitter:image:alt" content="SightScale.ai — The GenAI Control Layer" />
+  <!-- Social preview -->
+  <meta property="og:site_name" content="SightScale.ai" />
+  <meta property="og:title" content="SightScale.ai — The GenAI Control Layer" />
+  <meta property="og:description" content="Provenance-assured data and LoRA modules that deliver SLA-grade, photorealistic outputs—repeatably and at scale." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.sightscale.ai/" />
+  <meta property="og:image" content="https://www.sightscale.ai/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SightScale.ai — The GenAI Control Layer" />
+  <meta name="twitter:description" content="Provenance-assured data and LoRA modules that deliver SLA-grade, photorealistic outputs—repeatably and at scale." />
+  <meta name="twitter:image" content="https://www.sightscale.ai/og.jpg" />
+  <meta name="theme-color" content="#0b1220" />
 
-    <!-- Icons -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-    <!-- Fonts + CSS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+  <!-- Optional: Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Structured data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "SightScale.ai",
-      "url": "https://www.sightscale.ai/",
-      "logo": "https://www.sightscale.ai/og.jpg"
+  <!-- Styles: self-contained -->
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-alt: #0f172a;
+      --card: #111827;
+      --muted: #8693a7;
+      --text: #e5ecf5;
+      --brand: #6da8ff;
+      --brand-2: #a0bfff;
+      --border: #20304a;
+      --ring: rgba(109,168,255,.35);
+      --maxw: 1120px;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
     }
-    </script>
-  </head>
+    * { box-sizing: border-box }
+    html,body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji; }
+    a { color: var(--brand) }
+    img { max-width:100%; height:auto }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+    .site-header { position: sticky; top:0; z-index:40; backdrop-filter: blur(8px); background: color-mix(in oklab, var(--bg) 82%, #000); border-bottom: 1px solid var(--border); }
+    .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
+    .logo a { color:#fff; font-weight:700; text-decoration:none; letter-spacing:.2px }
+    nav a { color: var(--text); text-decoration:none; margin-left:20px }
+    nav a.btn { padding:10px 16px; border:1px solid var(--border); border-radius:999px }
+    .hero { background: radial-gradient(1200px 500px at 50% -10%, rgba(109,168,255,.12), transparent), linear-gradient(to bottom, var(--bg), var(--bg-alt)); padding: 72px 0 36px; }
+    .hero-inner { text-align:center; }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height:1.05; margin: 0 0 18px }
+    .lead { color: var(--brand-2); font-size: clamp(1.05rem, 2.2vw, 1.2rem); max-width: 800px; margin: 0 auto 24px }
+    .cta { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top: 8px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 18px; font-weight:600; text-decoration:none; border-radius:999px; border:1px solid var(--border); color:var(--text); background:transparent; }
+    .btn-primary { background: linear-gradient(180deg, var(--brand), #5d9dff); color:#061126; border: 1px solid #6ea9ff; box-shadow: 0 8px 22px var(--ring); }
+    .btn:hover { transform: translateY(-1px); transition: .15s ease; }
+    .subtext { color: var(--muted); font-size:.95rem; margin-top:6px }
+    .section { padding: 56px 0 }
+    .alt { background: linear-gradient(to bottom, var(--bg-alt), #0c1528); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    .section h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); margin:0 0 18px }
+    .grid-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap:18px }
+    @media (max-width: 900px){ .grid-3 { grid-template-columns: 1fr; } }
+    .card { background: linear-gradient(180deg, #0d162b, #0b1426); border:1px solid var(--border); border-radius: var(--radius); padding:18px 18px 16px; box-shadow: var(--shadow); }
+    .card h3 { margin:0 0 6px; font-size:1.1rem }
+    .card p { margin:0; color: var(--muted) }
+    .logos { display:grid; grid-template-columns: repeat(6,1fr); gap:16px; opacity:.85 }
+    @media (max-width: 900px){ .logos { grid-template-columns: repeat(3,1fr); } }
+    .logo-tile { height:46px; border:1px dashed var(--border); border-radius:12px; display:flex; align-items:center; justify-content:center; color:#9fb2d3; font-size:.9rem; }
+    ol.steps { counter-reset: s; display:grid; gap:14px; }
+    ol.steps li { list-style:none; background:#0c162a; border:1px solid var(--border); border-radius:14px; padding:14px 14px 14px 56px; position:relative; color:var(--muted);}
+    ol.steps li strong { color: var(--text) }
+    ol.steps li::before{ counter-increment:s; content: counter(s); position:absolute; left:14px; top:12px; width:28px; height:28px; border-radius:50%; display:grid; place-items:center; background:#12213c; border:1px solid var(--border); color:#9db9ff; font-weight:700 }
+    .pill { display:inline-block; padding:4px 10px; border:1px solid var(--border); border-radius:999px; font-size:.85rem; color:#b6c7e6; }
+    .stat-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px }
+    .stat{ background:#0c162a; border:1px solid var(--border); border-radius:999px; padding:6px 10px; font-size:.9rem; color:#c8d7f3 }
+    .site-footer { border-top:1px solid var(--border); background:#0a1020; }
+    .foot-inner { padding:24px 0; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; color:#8693a7 }
+    .links a { margin-right:14px; color:#8693a7; text-decoration:none }
+    .skip { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden }
+    .skip:focus { position:static; width:auto; height:auto; padding:8px 10px; background:#fff; color:#000; border-radius:6px }
+  </style>
 
-  <body>
-    <!-- Header / Nav -->
-    <header class="site-header">
-      <div class="container nav">
-        <div class="logo"><a href="/">SightScale.ai</a></div>
-        <nav aria-label="Primary">
-          <a href="#capabilities">Capabilities</a>
-          <a href="#how">How it works</a>
-          <a href="#contact" class="btn">Contact</a>
-        </nav>
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SightScale.ai",
+    "url": "https://www.sightscale.ai/",
+    "logo": "https://www.sightscale.ai/og.jpg",
+    "sameAs": []
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav">
+      <div class="logo"><a href="/" aria-label="SightScale.ai home">SightScale.ai</a></div>
+      <nav aria-label="Primary">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#how">How it works</a>
+        <a href="#benchmarks">Benchmarks</a>
+        <a href="#gov">Government</a>
+        <a class="btn" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <h1 id="hero-title">The GenAI Control Layer</h1>
+        <p class="lead">Provenance-assured data and LoRA modules that deliver SLA-grade, photorealistic outputs—repeatably and at scale.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="mailto:kevin@sightscale.ai?subject=SightScale%20pilot%20request&body=Hi%20SightScale%2C%0A%0AAgency%2FCompany%3A%0AUse%20case%3A%0ATimeline%3A%0AUEI%2FCAGE%20needed%3A%20Yes%2FNo%0A%0AThanks%2C">Request a pilot</a>
+          <a class="btn" href="#capabilities">View capabilities</a>
+        </div>
+        <p class="subtext">Own your data. Trust your outputs.</p>
+        <div class="stat-row" aria-label="trust highlights">
+          <span class="stat">Provenance-first</span>
+          <span class="stat">Repeatable controls</span>
+          <span class="stat">SLA-backed</span>
+          <span class="stat">Audit-ready</span>
+        </div>
       </div>
-    </header>
+    </section>
 
-    <main id="main">
-      <!-- Hero -->
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="container hero-inner">
-          <h1 id="hero-title">The GenAI Control Layer</h1>
-          <p class="lead">
-            Provenance-assured data and LoRA modules that deliver SLA-grade, photorealistic outputs—repeatably and at scale.
-          </p>
-          <div class="cta">
-            <a class="btn btn-primary" href="mailto:kevin@sightscale.ai">Get in touch</a>
-            <a class="btn" href="#capabilities">View capabilities</a>
-          </div>
-          <p class="subtext">Own your data. Trust your outputs.</p>
-        </div>
-      </section>
-
-      <!-- Capabilities -->
-      <section id="capabilities" class="section" aria-labelledby="capabilities-title">
-        <div class="container">
-          <h2 id="capabilities-title">Capabilities</h2>
-          <div class="grid-3">
-            <div class="card">
-              <h3>Provenance & Compliance</h3>
-              <p>We capture and label data in controlled conditions, so IP lineage is explicit and audit-ready.</p>
-            </div>
-            <div class="card">
-              <h3>Control & Repeatability</h3>
-              <p>Directional-lighting LoRAs and standardized trigger tokens enable deterministic outputs.</p>
-            </div>
-            <div class="card">
-              <h3>Photorealism QA</h3>
-              <p>Objective QA across lighting, material reflectance, and prompt fidelity — tuned for production use.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- How it works -->
-      <section id="how" class="section alt" aria-labelledby="how-title">
-        <div class="container">
-          <h2 id="how-title">How it works</h2>
-          <ol>
-            <li><strong>Data manufacturing:</strong> Studio-grade capture with structured metadata and automatic labeling.</li>
-            <li><strong>Fine-tuning:</strong> LoRA/LoHa modules and anchor tokens for precise behaviors.</li>
-            <li><strong>QA & Benchmarking:</strong> Photorealism checks, prompt fidelity scoring, and regression tests.</li>
-            <li><strong>Delivery:</strong> LoRA modules, prompt packs, and documentation for enterprise deployment.</li>
-          </ol>
-        </div>
-      </section>
-
-      <!-- Sectors -->
-      <section class="section" aria-labelledby="sectors-title">
-        <div class="container">
-          <h2 id="sectors-title">Sectors we serve</h2>
-          <div class="grid-3">
-            <div class="card">
-              <h3>CPG & Fashion</h3>
-              <p>Studio-quality product imagery at scale with consistent style and lighting.</p>
-            </div>
-            <div class="card">
-              <h3>Automotive</h3>
-              <p>High-fidelity assets for marketing, configurators, and simulation.</p>
-            </div>
-            <div class="card">
-              <h3>Government & Regulated</h3>
-              <p>Provenance-assured data and audit trails aligned to strict compliance needs.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="section alt" aria-labelledby="contact-title">
-        <div class="container">
-          <h2 id="contact-title">Contact</h2>
-          <p>Questions or a pilot in mind? Reach out — we respond quickly.</p>
-          <p><a class="btn btn-primary" href="mailto:kevin@sightscale.ai">kevin@sightscale.ai</a></p>
-          <p class="subtext">Prefer a form later? We’ll add one once you wire up Turnstile.</p>
-        </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="site-footer">
+    <!-- Capabilities -->
+    <section id="capabilities" class="section" aria-labelledby="capabilities-title">
       <div class="container">
-        <small>© <span id="y"></span> SightScale.ai — All rights reserved.</small>
+        <h2 id="capabilities-title">Capabilities</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Provenance & Compliance</h3>
+            <p>We capture and label data in controlled conditions, so IP lineage is explicit and audit-ready.</p>
+          </div>
+          <div class="card">
+            <h3>Control & Repeatability</h3>
+            <p>Directional-lighting LoRAs and standardized trigger tokens enable deterministic outputs.</p>
+          </div>
+          <div class="card">
+            <h3>Photorealism QA</h3>
+            <p>Objective QA across lighting, material reflectance, and prompt fidelity—tuned for production use.</p>
+          </div>
+        </div>
       </div>
-    </footer>
+    </section>
 
-    <script>
-      document.getElementById('y').textContent = new Date().getFullYear();
-    </script>
-  </body>
+    <!-- How it works -->
+    <section id="how" class="section alt" aria-labelledby="how-title">
+      <div class="container">
+        <h2 id="how-title">How it works</h2>
+        <ol class="steps">
+          <li><strong>Data manufacturing:</strong> Studio-grade capture with structured metadata and automatic labeling.</li>
+          <li><strong>Fine-tuning:</strong> LoRA/LoHa modules and anchor tokens for precise behaviors.</li>
+          <li><strong>QA & benchmarking:</strong> Photorealism checks, prompt fidelity scoring, and regression tests.</li>
+          <li><strong>Delivery:</strong> LoRA modules, prompt packs, and documentation for enterprise deployment.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Benchmarks -->
+    <section id="benchmarks" class="section" aria-labelledby="benchmarks-title">
+      <div class="container">
+        <h2 id="benchmarks-title">Benchmarks</h2>
+        <p><strong>Directional lighting control:</strong> ≥90% prompt-to-output consistency for left/right lighting in controlled tests (inanimate objects). Full protocol available under NDA.</p>
+      </div>
+    </section>
+
+    <!-- Government & SBIR -->
+    <section id="gov" class="section alt" aria-labelledby="gov-title">
+      <div class="container">
+        <h2 id="gov-title">Government & SBIR</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Contracting</h3>
+            <p>SAM Active • Small Business • SBIR-eligible<br>
+               UEI: <strong>WVPHEEJVMV36</strong><br>
+               CAGE: <strong>14R92</strong><br>
+               Location: Daly City, CA</p>
+          </div>
+          <div class="card">
+            <h3>Core competencies</h3>
+            <p>Data provenance capture • LoRA/LoHa fine-tuning • Photorealism QA & regression • Documentation & versioning</p>
+          </div>
+          <div class="card">
+            <h3>NAICS & Docs</h3>
+            <p>NAICS: 541511, 541512, 541715<br>
+               <a href="SightScale-Capabilities.pdf">Download 1-page Capabilities Statement (PDF)</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title">Contact</h2>
+        <p>Questions or a pilot in mind? Reach out — we respond quickly.</p>
+        <p><a class="btn btn-primary" href="mailto:kevin@sightscale.ai?subject=SightScale%20pilot%20request&body=Hi%20SightScale%2C%0A%0AAgency%2FCompany%3A%0AUse%20case%3A%0ATimeline%3A%0AUEI%2FCAGE%20needed%3A%20Yes%2FNo%0A%0AThanks%2C">kevin@sightscale.ai</a></p>
+        <p class="subtext"><span class="pill">SLA available</span> <span class="pill">NDA welcome</span></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container foot-inner">
+      <small>© <span id="y"></span> SightScale.ai — All rights reserved.</small>
+      <div class="links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
