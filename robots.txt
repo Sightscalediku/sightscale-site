@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sightscale.ai/sitemap.xml
+Sitemap: https://www.sightscale.ai/sitemap.xml
